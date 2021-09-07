@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Star Generator</title>
+    <script type="text/javascript" src="PolygonGenerator.js"></script>
+
+</head>
+
+<body>
+    <h2>This tool makes it easy to generate Polygons w/ circular Shape and offset vertex connections</h2>
+    <table style="background-color: rgb(50,50,50,.5); border-radius: 5px; width:100%">
+        <tr>
+            <td>
+                <input id="n" type="range" class="slider" min="3" max="80" value="8" onchange="generatePoly()" oninput="this.nextElementSibling.value = this.value">
+                <output>3</output>
+                <label for="n">(n - Number of Vertices)</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="m" type="range" class="slider" min="1" max="30" value="3" onchange="generatePoly()" oninput="this.nextElementSibling.value = this.value">
+                <output>1</output>
+                <label for="m">(m - Vertex-Offset)</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="generatePoly()">Generate Polygon</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <svg width="400" height="400">
+                    <path 
+                          id="path" 
+                          fill="yellow" 
+                          fill-opacity=".75"
+                          stroke="black"
+                          stroke-width="2px" 
+                          transform="translate(200,200)"
+                          d="M200,0,L200,0,L-100,173,L-100,-173,Z">
+                    </path>
+                    <animateTransform 
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 0 0"
+                        to="360 0 0"
+                        dur="120s"
+                        repeatCount="indefinite">
+                    </animateTransform>
+                </svg>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Path can be found in the browser console!
+            </td>
+        </tr>
+    </table>
+    <h4 style="text-align: right">©BD</h4>
+</body>
+
+</html>
